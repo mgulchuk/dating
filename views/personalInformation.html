@@ -9,7 +9,7 @@
     <title>Personal Information</title>
 </head>
 <body>
-<form id="personal" method="post" action="profile">
+<form id="personal" method="post" action="#">
     <div class="container border border-dark">
         <nav class="navbar navbar-dark bg-dark">
             <a class="navbar-brand" href="{{ @BASE }}">Home</a>
@@ -21,7 +21,6 @@
             <div class="form-group col-md-7">
                 <label for="firstName"><strong>First Name</strong></label>
                 <input type="text" class="form-control" id="firstName" name="firstName" placeholder="first">
-                <span class="errs" id="errFname">*Please enter a first name</span>
             </div>
             <div class="card" style="width: 24rem;">
                 <div class="card-body">
@@ -32,15 +31,13 @@
             <div class="form-group col-md-7">
                 <label for="lastName"><strong>Last Name</strong></label>
                 <input type="text" class="form-control" id="lastName" name="lastName" placeholder="last">
-                <span class="errs" id="errLname">*Please enter a last name</span>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-7">
-                <label for="linkedIn"><strong>Age</strong></label>
-                <input type="text" class="form-control" id="linkedIn" name="linkedIn" placeholder="age">
-                <span class="errs" id="errLinkedIn">*Please enter a valid age</span>
+                <label for="age"><strong>Age</strong></label>
+                <input type="text" class="form-control" id="age" name="age" placeholder="age">
             </div>
         </div>
         <div class="form-group">
@@ -48,23 +45,22 @@
                 <label class="form-check-label"><strong>Gender</strong></label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="check" id="html" value="html" checked>
-                <label class="form-check-label" for="html">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+                <label class="form-check-label" for="male">
                     Male
                 </label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="check" id="text" value="text">
-                <label class="form-check-label" for="text">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                <label class="form-check-label" for="female">
                     Female
                 </label>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-7">
-                <label for="email"><strong>Phone Number</strong></label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="555-456-7890">
-                <span class="errs" id="errEmail">*Please enter a valid phone number</span>
+                <label for="phone"><strong>Phone Number</strong></label>
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="555-456-7890">
             </div>
             <div class="form-group col-md-10 offset-10">
                 <button type="submit" class="btn btn-primary" id="button">Next ></button>
