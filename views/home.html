@@ -9,21 +9,22 @@ this document is the home page for a dating website
     <meta charset="UTF-8">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel = "stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Date Mate</title>
 </head>
 <body>
-    <div class = "container">
-        <div>
-            <ul>
-                <li><a>Home</a></li>
-            </ul>
-        </div>
-        <div class = "row">
-            <div class = "col-6">
+<form action="personal">
+    <div class="container">
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="{{ @BASE }}">Home</a>
+        </nav>
+        <br>
+        <div class="row">
+            <div class="col-6">
                 <h1>My Dating Website</h1>
-                    <p>If you are looking for that special someone then you
+                <p>If you are looking for that special someone then you
                     have come to the right place. Here at Date Mate you will meet
                     people with similar likes and dislikes. We strive to help you
                     find your other half and with our advanced algorithms
@@ -31,22 +32,23 @@ this document is the home page for a dating website
                     Find out why so many people chose Date Mate by signing up today!</p>
                 <h2>Hear what our users are saying about us.</h2>
                 <hr class="my-4">
-                <div id = tests>
-                <p>"I met the love of my life after only a month!" - Andrea</p>
-                <p>"It was so easy to set up a profile and start meeting people. I
-                didnt't realize how many others were looking for love in my area."
-                - John Smith</p>
-                <p>"Just try it! You'll never be the same" - Sarah</p>
+                <div id=tests>
+                    <p>"I met the love of my life after only a month!" - Andrea</p>
+                    <p>"It was so easy to set up a profile and start meeting people. I
+                        didnt't realize how many others were looking for love in my area."
+                        - John Smith</p>
+                    <p>"Just try it! You'll never be the same" - Sarah</p>
                 </div>
                 <hr class="my-4">
-                <div id = "profile">
-                    <button type="submit" class="btn btn-primary" id = "button">Create a Profile!</button>
+                <div id="btn">
+                    <button type="submit" class="btn btn-primary" id="button">Create a Profile!</button>
                 </div>
             </div>
-            <div class = "col-6">
-                <img src = "images/couple.jpg" alt = "couple">
+            <div class="col-6">
+                <img src="images/couple.jpg" alt="couple">
             </div>
         </div>
     </div>
+</form>
 </body>
 </html>

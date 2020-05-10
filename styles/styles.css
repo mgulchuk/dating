@@ -19,15 +19,10 @@ h2{
     font-size: 25px;
     border-radius: 12px;
 }
-#profile{
+#btn{
     text-align: center;
 }
 img{
     border-radius: 25px;
 }
-ul {
-    list-style-type: none;
-    overflow: hidden;
-    font-size: 2em;
-    color: black;
-}
+
