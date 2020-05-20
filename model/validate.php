@@ -1,8 +1,9 @@
 <?php
 
 function validName($name){
+    $valid = true;
     $name = str_replace(' ', '', $name);
-    return !empty($name) && ctype_alpha($name);
+    return !empty($name) && ctype_alpha($name) ;
 }
 
 function validAge($age){

@@ -27,6 +27,7 @@ $f3->route('GET /', function()
 
 $f3->route('GET|POST /personal', function($f3)
 {
+
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
     //var_dump($_POST);
     //array(5) { ["firstName"]=> string(7) "Michael" ["lastName"]=> string(7) "Gulchuk"
@@ -37,6 +38,7 @@ $f3->route('GET|POST /personal', function($f3)
         //Set an error variable in the F3 hive
         $f3->set('errors["first"]', "Invalid first name");
     }
+
     if (!validName($_POST['lastName'])) {
 
         //Set an error variable in the F3 hive
@@ -53,7 +55,7 @@ $f3->route('GET|POST /personal', function($f3)
         $f3->set('errors["num"]', "Invalid phone number");
     }
 
-    else{
+    if (empty($f3->get('errors'))){
         //Store the data in the session array
         $_SESSION['firstName'] = $_POST['firstName'];
         $_SESSION['lastName'] = $_POST['lastName'];
