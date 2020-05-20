@@ -12,6 +12,7 @@ session_start();
 
 // Require the autoload file
 require_once('vendor/autoload.php');
+require_once('model/validate.php');
 
 // Instantiate the F3 Base class
 $f3 = Base::instance();
@@ -31,17 +32,42 @@ $f3->route('GET|POST /personal', function($f3)
     //array(5) { ["firstName"]=> string(7) "Michael" ["lastName"]=> string(7) "Gulchuk"
     // ["age"]=> string(2) "23" ["gender"]=> string(4) "male" ["phone"]=> string(9) "345678976" }
 
-    // store the data in the session array
-    $_SESSION['firstName'] = $_POST['firstName'];
-    $_SESSION['lastName'] = $_POST['lastName'];
-    $_SESSION['age'] = $_POST['age'];
-    $_SESSION['gender'] = $_POST['gender'];
-    $_SESSION['phone'] = $_POST['phone'];
+    if (!validName($_POST['firstName'])) {
 
-    // redirect to summary page
-    $f3->reroute('profile');
-    session_destroy();
+        //Set an error variable in the F3 hive
+        $f3->set('errors["first"]', "Invalid first name");
     }
+    if (!validName($_POST['lastName'])) {
+
+        //Set an error variable in the F3 hive
+        $f3->set('errors["last"]', "Invalid last name");
+    }
+
+    if(!validAge($_POST['age'])){
+        //Set an error variable in the F3 hive
+        $f3->set('errors["age"]', "Invalid age");
+    }
+
+    if(!validPhone($_POST['phone'])){
+        //Set an error variable in the F3 hive
+        $f3->set('errors["num"]', "Invalid phone number");
+    }
+
+    else{
+        //Store the data in the session array
+        $_SESSION['firstName'] = $_POST['firstName'];
+        $_SESSION['lastName'] = $_POST['lastName'];
+        $_SESSION['age'] = $_POST['age'];
+        $_SESSION['phone'] = $_POST['phone'];
+        $_SESSION['gender'] = $_POST['gender'];
+
+        $f3->reroute('profile');
+    }
+}
+    $f3->set('first', $_POST['firstName']);
+    $f3->set('last', $_POST['lastName']);
+    $f3->set('age', $_POST['age']);
+    $f3->set('num', $_POST['phone']);
 
     $view = new Template();
     echo $view -> render("views/personalInformation.html");
