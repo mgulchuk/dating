@@ -25,4 +25,6 @@ h2{
 img{
     border-radius: 25px;
 }
-
+.err {
+    color: darkred;
+}
