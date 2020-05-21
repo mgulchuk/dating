@@ -1,7 +1,6 @@
 <?php
 
 function validName($name){
-    $valid = true;
     $name = str_replace(' ', '', $name);
     return !empty($name) && ctype_alpha($name) ;
 }
@@ -14,14 +13,14 @@ function validPhone($num){
     return !empty($num) && preg_match('/^\d{10}$/', $num);
 }
 
-function validEmail(){
-
+function validEmail($email){
+    return !empty($email) && !preg_match("/^[a-zA-Z ]*$/",$email);
 }
 
-function validOutdoor(){
-
+function validOutdoor($outDoor){
+    return !empty($outDoor);
 }
 
-function validIndoor(){
-
+function validIndoor($indoor){
+    return !empty($indoor);
 }
