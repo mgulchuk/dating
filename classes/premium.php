@@ -16,17 +16,17 @@ class PremiumMember extends member
     private $_outDoor;
 
     /** Default constructor
-     * @param $fName string first name
-     * @param $lName string last name
-     * @param $age int age
-     * @param $gender string gender
-     * @param $phone int phone number
-     * @param $email string email address
-     * @param $state string state
-     * @param $seeking string seeking
-     * @param $bio string bio
-     * @param $inDoor array indoor
-     * @param $outDoor array outdoor
+     * @param $fName the first name
+     * @param $lName the last name
+     * @param $age the age
+     * @param $gender the gender
+     * @param $phone the phone number
+     * @param $email the email address
+     * @param $state the state
+     * @param $seeking the seeking
+     * @param $bio the bio
+     * @param $inDoor the indoor
+     * @param $outDoor the outdoor
      */
     public function __construct($fName, $lName, $age, $gender, $phone,
                                 $email, $state, $seeking, $bio, $inDoor, $outDoor)

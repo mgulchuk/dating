@@ -126,8 +126,10 @@ class Controller
         $outdoor = getOutdoor();
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_SESSION['interest'] = ($_POST['interest']);
+            $_SESSION['interests'] = ($_POST['interests']);
 
-                $this->_f3->reroute('summary');
+            $this->_f3->reroute('summary');
         }
 
         $this->_f3->set('indoor', $indoor);
