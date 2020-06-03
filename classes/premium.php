@@ -28,24 +28,26 @@ class PremiumMember extends member
      * @param $inDoor the indoor
      * @param $outDoor the outdoor
      */
-    public function __construct($fName, $lName, $age, $gender, $phone,
-                                $email, $state, $seeking, $bio, $inDoor, $outDoor)
+    public function __construct($fName = "Bob",
+                                $lName = "smith",
+                                $age = 18,
+                                $gender = "male",
+                                $phone = 1234567890,
+                                $email = "bobsmith@gmail.com",
+                                $state = "washington",
+                                $seeking = "female",
+                                $bio = "hi guys",
+                                $inDoor = "",
+                                $outDoor = "")
     {
-        $this->_fName = $fName;
-        $this->_lName = $lName;
-        $this->_age = $age;
-        $this->_gender = $gender;
-        $this->_phone = $phone;
-        $this->_email = $email;
-        $this->_state = $state;
-        $this->_seeking = $seeking;
-        $this->_bio = $bio;
-        $this->_inDoor = $inDoor;
-        $this->_outDoor = $outDoor;
+        parent::__construct($fName, $lName, $age, $gender, $phone,
+            $email, $state, $seeking, $bio);
+        $this->setIndoor($inDoor);
+        $this->setOutdoor($outDoor);
     }
 
     /**
-     * @return string first name
+     * @return the first name
      */
     public function getFName()
     {
@@ -53,7 +55,7 @@ class PremiumMember extends member
     }
 
     /** Set the first name
-     *  @param string the first name
+     *  @param the the first name
      */
     public function setFname($fName)
     {
@@ -61,7 +63,7 @@ class PremiumMember extends member
     }
 
     /**
-     * @return string last name
+     * @return the last name
      */
     public function getLName()
     {
@@ -69,7 +71,7 @@ class PremiumMember extends member
     }
 
     /** Set the last name
-     *  @param string the last name
+     *  @param the the last name
      */
     public function setLname($lName)
     {
@@ -77,7 +79,7 @@ class PremiumMember extends member
     }
 
     /**
-     * @return int age
+     * @return the age
      */
     public function getAge()
     {
@@ -85,7 +87,7 @@ class PremiumMember extends member
     }
 
     /** Set the age
-     *  @param int the age
+     *  @param the the age
      */
     public function setAge($age)
     {
@@ -93,7 +95,7 @@ class PremiumMember extends member
     }
 
     /**
-     * @return int phone number
+     * @return the phone number
      */
     public function getPhone()
     {
@@ -101,7 +103,7 @@ class PremiumMember extends member
     }
 
     /** Set the phone number
-     *  @param int the phone
+     *  @param the the phone
      */
     public function setPhone($phone)
     {
@@ -109,7 +111,7 @@ class PremiumMember extends member
     }
 
     /**
-     * @return string gender
+     * @return the gender
      */
     public function getGender()
     {
@@ -117,7 +119,7 @@ class PremiumMember extends member
     }
 
     /** Set the gender
-     *  @param string gender name
+     *  @param the gender name
      */
     public function setGender($gender)
     {
@@ -125,7 +127,7 @@ class PremiumMember extends member
     }
 
     /**
-     * @return string email
+     * @return the email
      */
     public function getEmail()
     {
@@ -133,7 +135,7 @@ class PremiumMember extends member
     }
 
     /** Set the email
-     *  @param string email
+     *  @param the email
      */
     public function setEmail($email)
     {
@@ -141,7 +143,7 @@ class PremiumMember extends member
     }
 
     /**
-     * @return string state
+     * @return the state
      */
     public function getState()
     {
@@ -149,7 +151,7 @@ class PremiumMember extends member
     }
 
     /** Set the state
-     *  @param string state
+     *  @param the state
      */
     public function setState($state)
     {
@@ -157,7 +159,7 @@ class PremiumMember extends member
     }
 
     /**
-     * @return string seeking
+     * @return the seeking
      */
     public function getSeeking()
     {
@@ -165,7 +167,7 @@ class PremiumMember extends member
     }
 
     /** Set the seeking
-     *  @param string seeking
+     *  @param the seeking
      */
     public function setSeeking($seeking)
     {
@@ -173,7 +175,7 @@ class PremiumMember extends member
     }
 
     /**
-     * @return string bio
+     * @return the bio
      */
     public function getBio()
     {
@@ -181,7 +183,7 @@ class PremiumMember extends member
     }
 
     /** Set the bio
-     *  @param string the bio
+     *  @param the the bio
      */
     public function setBio($bio)
     {
@@ -189,7 +191,7 @@ class PremiumMember extends member
     }
 
     /**
-     * @return array indoor interests
+     * @return the indoor interests
      */
     public function getIndoor()
     {
@@ -197,7 +199,7 @@ class PremiumMember extends member
     }
 
     /** Set the indoor interests
-     *  @param array the indoor interests
+     *  @param the indoor interests
      */
     public function setIndoor($indoor)
     {
@@ -205,7 +207,7 @@ class PremiumMember extends member
     }
 
     /**
-     * @return array outdoor interests
+     * @return the outdoor interests
      */
     public function getOutdoor()
     {
@@ -213,7 +215,7 @@ class PremiumMember extends member
     }
 
     /** Set the outdoor interests
-     *  @param array the outdoor interests
+     *  @param the outdoor interests
      */
     public function setOutdoor($outdoor)
     {

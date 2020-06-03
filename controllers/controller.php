@@ -63,12 +63,31 @@ class Controller
             }
 
             if (empty($this->_f3->get('errors'))){
-                //Store the data in the session array
-                $_SESSION['firstName'] = $_POST['firstName'];
-                $_SESSION['lastName'] = $_POST['lastName'];
-                $_SESSION['age'] = $_POST['age'];
-                $_SESSION['phone'] = $_POST['phone'];
-                $_SESSION['gender'] = $_POST['gender'];
+
+                if(isset($_POST['premium'])){
+                    $_SESSION['premium'] = ($_POST['premium']);
+                    $premium = new PremiumMember();
+                    $premium->setFname($_POST['firstName']);
+                    $premium->setLname($_POST['lastName']);
+                    $premium->setAge($_POST['age']);
+                    $premium->setPhone($_POST['phone']);
+                    $premium->setGender($_POST['gender']);
+
+                    //Store the object in the session array
+                    $_SESSION['premium'] = $premium;
+
+                    $this->_f3->reroute('profile');
+                }
+
+                $member = new Member();
+                $member->setFname($_POST['firstName']);
+                $member->setLname($_POST['lastName']);
+                $member->setAge($_POST['age']);
+                $member->setPhone($_POST['phone']);
+                $member->setGender($_POST['gender']);
+
+                //Store the object in the session array
+                $_SESSION['member'] = $member;
 
                 $this->_f3->reroute('profile');
             }
@@ -99,18 +118,20 @@ class Controller
             }
 
             if (empty($this->_f3->get('errors'))){
-                // store the data in the session array
-                $_SESSION['state'] = $_POST['state'];
-                $_SESSION['seeking'] = $_POST['seeking'];
-                $_SESSION['bio'] = $_POST['bio'];
-                $_SESSION['email'] = $_POST['email'];
 
-                $this->_f3->reroute('interests');
+                $_SESSION['member']->setState($_POST['state']);
+                $_SESSION['member']->setSeeking($_POST['seeking']);
+                $_SESSION['member']->setBio($_POST['bio']);
+                $_SESSION['member']->setEmail($_POST['email']);
+
+                if(isset($_SESSION['premium'])) {
+                    $this->_f3->reroute('interests');
+                }
+
+                $this->_f3->reroute('summary');
             }
 
-
             $this->_f3->set('email', $_POST['email']);
-
         }
 
         $view = new Template();

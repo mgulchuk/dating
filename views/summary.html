@@ -19,13 +19,13 @@
                 <div class="col-6">
                     <div class="card" style="width: 34rem;">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Name: {{ @SESSION.firstName }} {{ @SESSION.lastName }}</li>
-                            <li class="list-group-item">Gender: {{ @SESSION.gender }}</li>
-                            <li class="list-group-item">Age: {{ @SESSION.age }}</li>
-                            <li class="list-group-item">Phone: {{ @SESSION.phone }}</li>
-                            <li class="list-group-item">Email: {{ @SESSION.email }}</li>
-                            <li class="list-group-item">State: {{ @SESSION.state }}</li>
-                            <li class="list-group-item">Seeking: {{ @SESSION.seeking }}</li>
+                            <li class="list-group-item">Name: {{ @SESSION.member->getFname() }} {{ @SESSION.member->getLname() }}</li>
+                            <li class="list-group-item">Gender: {{ @SESSION.member->getGender() }}</li>
+                            <li class="list-group-item">Age: {{ @SESSION.member->getAge() }}</li>
+                            <li class="list-group-item">Phone: {{ @SESSION.member->getPhone() }}</li>
+                            <li class="list-group-item">Email: {{ @SESSION.member->getEmail() }}</li>
+                            <li class="list-group-item">State: {{ @SESSION.member->getState() }}</li>
+                            <li class="list-group-item">Seeking: {{ @SESSION.member->getSeeking() }}</li>
                             <li class="list-group-item">Interests: {{ implode(@SESSION.interest, ", ") }}, {{ implode(@SESSION.interests, ", ") }}</li>
                         </ul>
                     </div>
@@ -33,7 +33,7 @@
                 <div class="col-6">
                     <div class="col-6"><img src="images/profile.png" alt="couple"></div>
                     <div class="col-6"><h3>Biography</h3></div>
-                    <p>{{ @SESSION.bio }}</p>
+                    <p>{{ @SESSION.member->getBio() }}</p>
                 </div>
             </div>
             <div class= "form-group" id="btn">
