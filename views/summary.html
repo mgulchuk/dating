@@ -26,7 +26,11 @@
                             <li class="list-group-item">Email: {{ @SESSION.member->getEmail() }}</li>
                             <li class="list-group-item">State: {{ @SESSION.member->getState() }}</li>
                             <li class="list-group-item">Seeking: {{ @SESSION.member->getSeeking() }}</li>
-                            <li class="list-group-item">Interests: {{ implode(@SESSION.interest, ", ") }}, {{ implode(@SESSION.interests, ", ") }}</li>
+                            <check if="{{ isset(@SESSION[premium]) }}">
+                                <check if="{{ !empty(@SESSION.premium->getIndoor()) || !empty(@SESSION.premium->getOutdoor()) }}">
+                                    <li class="list-group-item">Interests: {{ implode(@SESSION.premium->getIndoor(), ", ") }}, {{ implode(@SESSION.premium->getIndoor(), ", ") }}</li>
+                                </check>
+                            </check>
                         </ul>
                     </div>
                 </div>

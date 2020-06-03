@@ -45,6 +45,7 @@ class Member
         $this->setBio($bio);
     }
 
+
     /**
      * @return string first name
      */

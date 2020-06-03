@@ -67,16 +67,8 @@ class Controller
                 if(isset($_POST['premium'])){
                     $_SESSION['premium'] = ($_POST['premium']);
                     $premium = new PremiumMember();
-                    $premium->setFname($_POST['firstName']);
-                    $premium->setLname($_POST['lastName']);
-                    $premium->setAge($_POST['age']);
-                    $premium->setPhone($_POST['phone']);
-                    $premium->setGender($_POST['gender']);
-
                     //Store the object in the session array
                     $_SESSION['premium'] = $premium;
-
-                    $this->_f3->reroute('profile');
                 }
 
                 $member = new Member();
@@ -147,8 +139,8 @@ class Controller
         $outdoor = getOutdoor();
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_SESSION['interest'] = ($_POST['interest']);
-            $_SESSION['interests'] = ($_POST['interests']);
+            $_SESSION['premium']->setIndoor($_POST['interest']);
+            $_SESSION['premium']->setOutdoor($_POST['interests']);
 
             $this->_f3->reroute('summary');
         }
